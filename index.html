@@ -1,1 +1,37 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form</title>
+  </head>
+  <body>
+    <main>
+      <h1>Accessible Form Example</h1>
+    
+      <h2>Contents</h2>
+      <h2>Introduction</h2>      
+      
+      <h2>Form</h2>
+      <div>
+        <form>
+          
+          <input id="name_empty" type="text">
+
+          <label for="name1">Name:</label>
+          <input id="name1" type="text">
+
+          <label aria-label="Name, label">
+            Name:
+            <input 
+              aria-label="Name"
+              autocomplete="name"
+              type="text" 
+            >
+          </label>
+          
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
