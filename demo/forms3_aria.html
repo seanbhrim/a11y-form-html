@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A11y - Forms Part 3</title>
+
+  <style>
+    main {
+      padding-bottom: 20vh;
+    }
+    form {
+      margin-bottom: 5vh;
+    }
+    .errText {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Part 3: ARIA</h1>
+
+    <ul>
+      <li>Labeling with ARIA</li>
+      <li>Consider the flow of information</li>
+    </ul>
+
+    <hr/>
+    <h2>Hidden Labels (aria-label)</h2>
+
+    <form>
+      <input type="text" autocomplete="off" aria-label="Search Ingredients">
+      <input type="submit" value="Search">
+    </form>
+
+    <hr/>
+    <h2>Complex Labels (aria-labelledby)</h2>
+
+    <!-- Less Accessible -->
+    <form>
+      <table>
+        <tr>
+          <th>Day</th>
+          <th>Employee</th>
+          <th>Time</th>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- More accessible -->
+    <form>
+      <table>
+        <tr>
+          <th>Day</th>
+          <th id="employeelabel" scope="col">Employee</th>
+          <th id="timelabel" scope="col">Time</th>
+        </tr>
+        <tr>
+          <td id="mon">Monday</td>
+          <td><input type="text" aria-labelledby="mon employeelabel" ></td>
+          <td><input type="text" aria-labelledby="mon timelabel"></td>
+        </tr>
+        <tr>
+          <td id="tues">Tuesday</td>
+          <td><input type="text" aria-labelledby="tues employeelabel" ></td>
+          <td><input type="text" aria-labelledby="tues timelabel"></td>
+        </tr>
+        <tr>
+          <td id="wed">Wednesday</td>
+          <td><input type="text" aria-labelledby="wed employeelabel" ></td>
+          <td><input type="text" aria-labelledby="wed timelabel"></td>
+        </tr>
+        <tr>
+          <td id="thurs">Thursday</td>
+          <td><input type="text" aria-labelledby="thurs employeelabel" ></td>
+          <td><input type="text" aria-labelledby="thurs timelabel"></td>
+        </tr>
+        <tr>
+          <td id="fri">Friday</td>
+          <td><input type="text" aria-labelledby="fri employeelabel" ></td>
+          <td><input type="text" aria-labelledby="fri timelabel"></td>
+        </tr>
+      </table>
+    </form>
+
+    <hr/>
+    <h2>Validation (aria-invalid)</h2>
+      
+    
+    <form>
+      <label for="email">Email*:</label>
+      <input id="email" type="text" autocomplete="email" required>
+      <br/>
+    </form>
+
+    <form>
+      <label for="email">Email*:</label>
+      <input id="email" type="text" autocomplete="email" aria-invalid="true" aria-describedby="errMsg">
+      <br/>
+      <span id="errMsg" class="errText">This is required</span>
+    </form>
+
+    <hr/>
+    <h2>Context (aria-describedby)</h2>
+
+    <form>
+      <label for="resetpass">Reset Password:</label>
+      <input type="password" id="resetpass" autocomplete="new-password" aria-describedby="pwnote"><br/>
+      <span id="pwnote">New password must be 8-15 characters and include letters and numbers.</span>
+    </form>
+
+  </main>
+</body>
+</html>

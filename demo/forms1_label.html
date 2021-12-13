@@ -1,11 +1,9 @@
-<!-- 1a: Label EVERYTHING -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forms Part 1</title>
+  <title>A11y - Forms Part 1</title>
 
   <style>
     main {
@@ -18,17 +16,27 @@
   <main>
     <h1>Part 1: Label Everything!</h1>
     
+    <ul>
+      <li>All inputs should be linked to a label</li>
+      <li>Use autocomplete where appropriate</li>
+    </ul>
+    
     <hr/>
     <h2>Text Input</h2>
     <form>
-      <!-- Bad -->
+      <!-- Less accessible -->
       <label>Email:</label>
       <input type="text">
       <br/>
       
-      <!-- Good-->
+      <!-- More accessible -->
       <label for="email">Email:</label>
       <input id="email" type="text" autocomplete="email">
+      <br/>
+
+      <label>
+        Email: <input type="text" autocomplete="email">
+      </label>
       <br/>
 
     </form>
@@ -36,12 +44,12 @@
     <hr/>
     <h2>Text Area</h2>
     <form>
-      <!-- Bad -->
+      <!-- Less Accessible -->
       <label>Address:</label><br/>
       <textarea></textarea>
       <br/>
 
-      <!-- Good -->
+      <!-- More accessible -->
       <label for="address">Address:</label><br>
       <textarea id="address" autocomplete="street-address"></textarea>
 
@@ -51,7 +59,17 @@
     <h2>Checkboxes</h2>
     <form>
       
-      <!-- Bad -->
+      <!-- Less Accessible -->
+      <h3>W3Schools Example:</h3>
+      <div>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label><br>
+      </div>
+      
       <h3>Mozilla Example:</h3>
       <div>
         <p>Choose your monster's features:</p>
@@ -65,17 +83,7 @@
         </div>
       </div>
 
-      <h3>W3Schools Example:</h3>
-      <div>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> I have a bike</label><br>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-        <label for="vehicle2"> I have a car</label><br>
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-        <label for="vehicle3"> I have a boat</label><br>
-      </div>
-      
-      <!-- Good -->
+      <!-- More accessible -->
       <h3>WebAIM Example:</h3>
       <fieldset>
         <legend>Select your pizza toppings:</legend>
@@ -95,7 +103,17 @@
     <h2>Radios</h2>
     <form>
       
-      <!-- Bad -->
+      <!-- Less Accessible -->
+      <h3>W3Schools Example:</h3>
+      <div>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+      </div>
+      
       <h3>Mozilla Example:</h3>
       <div>
         <p>Select a maintenance drone:</p>
@@ -113,17 +131,7 @@
         </div>
       </div>
 
-      <h3>W3Schools Example:</h3>
-      <div>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">HTML</label><br>
-        <input type="radio" id="css" name="fav_language" value="CSS">
-        <label for="css">CSS</label><br>
-        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-        <label for="javascript">JavaScript</label>
-      </div>
-
-      <!-- Good -->
+      <!-- More accessible -->
       <h3>WebAIM Example:</h3>
       <fieldset>
         <legend>Choose a shipping method:</legend>

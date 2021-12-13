@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A11y - Forms Part 2</title>
+
+  <style>
+    form {
+      margin: 5vh 0vh;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Part 2: Placeholders</h1>
+
+    <ul>
+      <li>Placeholders do NOT substitue labels</li>
+    </ul>
+
+    <!-- Less accessible -->
+    <form>
+      <fieldset>
+        <legend>Your name</legend>
+        <input type="text" name="last" placeholder="Last">
+        <input type="text" name="first" placeholder="First">
+        <input type="text" name="middle" placeholder="Middle">
+      </fieldset>
+    </form>
+
+    <!-- More accessible -->
+    <form>
+      <fieldset>
+        <legend>Your name</legend>
+        <label>
+          Last <input type="text" name="last" autocomplete="family-name">
+        </label>
+        <label>
+          First <input type="text" name="first" autocomplete="given-name">
+        </label>
+        <label>
+          Middle <input type="text" name="middle" autocomplete="additional-name">
+        </label>
+      </fieldset>
+    </form>
+
+  </main>
+</body>
+</html>
